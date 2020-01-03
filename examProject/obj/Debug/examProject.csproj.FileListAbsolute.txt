@@ -28,3 +28,4 @@ C:\Users\oweis\Documents\Visual Studio 2015\Projects\examProject\examProject\bin
 C:\Users\oweis\Documents\Visual Studio 2015\Projects\examProject\examProject\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
 C:\Users\oweis\Documents\Visual Studio 2015\Projects\examProject\examProject\bin\Debug\stdole.dll
 C:\Users\oweis\Documents\Visual Studio 2015\Projects\examProject\examProject\obj\Debug\examProject.frmImpression.resources
+C:\Users\oweis\documents\visual studio 2015\Projects\examProject\examProject\obj\Debug\examProject.frmAbsence.resources
