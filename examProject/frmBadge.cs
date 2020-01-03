@@ -43,18 +43,15 @@ namespace examProject
 
         private void singlePrint_Click(object sender, EventArgs e)
         {
+            string Path = Application.StartupPath;
             badgeReport badge = new badgeReport();
             badge.SetDataSource(projectExamDataSet);
-            frmImpression print = new frmImpression(badge);
-            print.ShowDialog();
-            /*StagiaireRapport rp = new StagiaireRapport();
-            rp.SetDataSource(ismoStagiaireDataSet);
-
+            badge.SetParameterValue("path", Path);
             string filtre = "";
-            if (textBox1.Text != "")
-                filtre = "{STAGIAIRE.NOMSTAGIAIRE} like '*" + textBox1.Text.Replace("'", "''");
-            frmImprission o = new frmImprission(rp, filtre);
-            o.ShowDialog();*/
+            if(etudiantDataGridView != null && etudiantDataGridView.DataSource != null && etudiantDataGridView.CurrentRow != null)
+                filtre = "{Etudiant.idEtudiant} = " + etudiantDataGridView.CurrentRow.Cells[0].Value.ToString();
+            frmImpression print = new frmImpression(badge, filtre);
+            print.ShowDialog();
         }
     }
 }
