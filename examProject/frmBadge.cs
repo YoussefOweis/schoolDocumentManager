@@ -48,10 +48,37 @@ namespace examProject
             badge.SetDataSource(projectExamDataSet);
             badge.SetParameterValue("path", Path);
             string filtre = "";
-            if(etudiantDataGridView != null && etudiantDataGridView.DataSource != null && etudiantDataGridView.CurrentRow != null)
-                filtre = "{Etudiant.idEtudiant} = " + etudiantDataGridView.CurrentRow.Cells[0].Value.ToString();
-            frmImpression print = new frmImpression(badge, filtre);
-            print.ShowDialog();
+            if (etudiantDataGridView != null && etudiantDataGridView.DataSource != null && etudiantDataGridView.CurrentRow != null)
+            {
+                string idEtudiant = etudiantDataGridView.CurrentRow.Cells[0].Value.ToString();
+                filtre = "{Etudiant.idEtudiant} = " + idEtudiant;
+                frmImpression print = new frmImpression(badge, filtre);
+                print.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Veuliez selectionner un etudiant!");
+            }
+        }
+
+        private void btnAllPrint_Click(object sender, EventArgs e)
+        {
+            string Path = Application.StartupPath;
+            badgeReport badge = new badgeReport();
+            badge.SetDataSource(projectExamDataSet);
+            badge.SetParameterValue("path", Path);
+            string filtre = "";
+            if (groupeComboBox != null && groupeComboBox.SelectedValue != null)
+            {
+                string idGroupe = groupeComboBox.SelectedValue.ToString();
+                filtre = "{Etudiant.idGroupe} = " + idGroupe;
+                frmImpression print = new frmImpression(badge, filtre);
+                print.ShowDialog();
+            } else
+            {
+                MessageBox.Show("Veuliez selectionner un groupe!");
+            }
+
         }
     }
 }
